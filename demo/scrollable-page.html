@@ -52,26 +52,28 @@
   </style>
 </head>
 <body>
-<div class="scrollmargin">
-    <span onclick="scroll()" class="large-button">
-    scroll down &dArr;
-    </span>
+<div>
+    JavaScript is a language. It has for loops. You use them like this:<br/>
+    <br/>
+    for(let i blah blah) {<br/>
+<br/>
+    }<br/>
+<br/>
+    Try what you've learned below. The button turns green when you have completed the assessment.<br/>
+<br/>
+    When the button is green, click it!<br/>
 </div>
-<pre id="editor">function foo(items) {
+<pre id="editor">
     var i;
+    const items = [1, 2, 3];
     for (i = 0; i &lt; items.length; i++) {
-        alert("Ace Rocks " + items[i]);
+        console.log("Ace Rocks " + items[i]);
     }
-
-}</pre>
+</pre>
 <div class="scrollmargin">
-    <div style="padding:20px">
-        press F11 to switch to fullscreen mode
-    </div>
-    <span onclick="add()" class="large-button">
-        +
-    </span>
-
+    <button id="btnRun">Run it!</button>
+    <textarea id="txtLog" rows="4" cols="50"></textarea>
+    <button id="btnSubmit">Submit my work!</button>
 </div>
 
 <script src="kitchen-sink/require.js"></script>
@@ -148,6 +150,24 @@ var themes = require("ace/ext/themelist").themes.map(function(t){return t.theme}
 
 window.add = add;
 window.scroll = scroll;
+
+(() => {
+    const btnRun = document.getElementById('btnRun');
+    const txtLog = document.getElementById('txtLog');
+    const btnSubmit = document.getElementById('btnSubmit');    
+
+    btnRun.onclick = () => {
+        const code = editor.getValue();
+        const console = {
+            log: (msg) => txtLog.innerHTML += `- ${msg}\n`
+        }
+        const result = eval(code);
+        btnSubmit.style.backgroundColor = 'green';
+        //console.log(result);
+        //txtLog.innerHTML += result + '\n';
+    }
+})();
+
 });
 </script>
 
