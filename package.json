@@ -28,6 +28,6 @@
         "lib": "lib/ace"
     },
     "scripts": {
-        "start": "node static.js",
+        "start": "node static.js"
     }
 }
