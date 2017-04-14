@@ -29,7 +29,5 @@
     },
     "scripts": {
         "start": "node static.js",
-        "test": "node lib/ace/test/all.js",
-        "postinstall": "node Makefile.dryice.js"
     }
 }
